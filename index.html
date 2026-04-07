@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CONFIGURATEUR — Générateur Lyrics</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
+
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: #2a2a2a;
+    --accent: #c8ff00;
+    --accent2: #ff4d00;
+    --text: #e8e8e8;
+    --muted: #666;
+    --tag-a: #1a2f1a;
+    --tag-a-border: #3a6a3a;
+    --tag-b: #1a1a2f;
+    --tag-b-border: #3a3a6a;
+    --tag-libre: #2a1a0a;
+    --tag-libre-border: #6a3a0a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .header-version {
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  /* LAYOUT */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 0;
+    min-height: calc(100vh - 61px);
+  }
+
+  .config-panel {
+    padding: 32px;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+  }
+
+  .output-panel {
+    padding: 24px;
+    position: sticky;
+    top: 61px;
+    height: calc(100vh - 61px);
+    overflow-y: auto;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 36px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    background: var(--accent);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* LABELS & INPUTS */
+  label {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  select, input[type="text"], input[type="number"], textarea {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  select:focus, input:focus, textarea:focus {
+    border-color: var(--accent);
+  }
+
+  select option { background: #1a1a1a; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .form-row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  /* CORPUS CARDS */
+  .corpus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .corpus-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: var(--surface2);
+    position: relative;
+  }
+
+  .corpus-card:hover { border-color: #444; }
+
+  .corpus-card.selected {
+    border-color: var(--accent);
+    background: #0f1a00;
+  }
+
+  .corpus-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .corpus-code {
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .corpus-artiste {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .corpus-projet {
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .corpus-slot-label {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+
+  .slot-A { background: var(--tag-a); border: 1px solid var(--tag-a-border); color: #7acc7a; }
+  .slot-B { background: var(--tag-b); border: 1px solid var(--tag-b-border); color: #7a7acc; }
+  .slot-C { background: #2a1f0a; border: 1px solid #5a3f0a; color: #cca07a; }
+  .slot-D { background: #1f0a2a; border: 1px solid #3f0a5a; color: #a07acc; }
+
+  /* STRUCTURE SECTIONS */
+  .structure-bloc {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .structure-bloc-header {
+    background: var(--surface2);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .structure-bloc-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    min-width: 100px;
+  }
+
+  .structure-bloc-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .structure-bloc-controls select,
+  .structure-bloc-controls input {
+    width: auto;
+  }
+
+  .structure-bloc-body {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* MODE SWITCH */
+  .mode-switch {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+
+  .mode-btn {
+    padding: 6px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    border: none;
+    background: var(--surface2);
+    color: var(--muted);
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+  }
+
+  /* TABLEAU HÉMISTICHES */
+  .hemistiche-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .hemistiche-table th {
+    background: var(--surface2);
+    padding: 7px 10px;
+    text-align: left;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--border);
+  }
+
+  .hemistiche-table td {
+    padding: 6px 8px;
+    border: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .hemistiche-table tr:nth-child(even) td { background: #0d0d0d; }
+
+  .vers-num {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .hemistiche-table select {
+    padding: 4px 6px;
+    font-size: 11px;
+  }
+
+  /* TENSION GRID */
+  .tension-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .tension-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 160px 140px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .tension-row select {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .tension-row input {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .v-label {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* RIME SELECTOR */
+  .rime-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .rime-pill {
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.15s;
+    background: var(--surface2);
+  }
+
+  .rime-pill.selected {
+    border-color: var(--accent2);
+    background: #1a0800;
+    color: var(--accent2);
+  }
+
+  /* THÈMES TAGS */
+  .theme-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    min-height: 36px;
+    cursor: pointer;
+  }
+
+  .theme-tag {
+    padding: 3px 9px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+    user-select: none;
+  }
+
+  .theme-tag.corpus-A { background: var(--tag-a); border-color: var(--tag-a-border); color: #7acc7a; }
+  .theme-tag.corpus-B { background: var(--tag-b); border-color: var(--tag-b-border); color: #7a7acc; }
+  .theme-tag.corpus-C { background: #2a1f0a; border-color: #5a3f0a; color: #cca07a; }
+  .theme-tag.corpus-D { background: #1f0a2a; border-color: #3f0a5a; color: #a07acc; }
+  .theme-tag.selected { opacity: 0.4; text-decoration: line-through; }
+
+  .theme-dropdown {
+    position: absolute;
+    background: #1a1a1a;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    z-index: 200;
+    max-height: 260px;
+    overflow-y: auto;
+    min-width: 280px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+  }
+
+  .theme-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.1s;
+  }
+
+  .theme-dropdown-item:hover { background: #222; }
+
+  .theme-dropdown-item .code {
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 28px;
+  }
+
+  /* CONNECTEURS */
+  .connecteur-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+
+  .connecteur-tag {
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+    background: var(--surface2);
+    color: var(--muted);
+  }
+
+  .connecteur-tag.forbidden {
+    border-color: var(--accent2);
+    color: var(--accent2);
+    background: #1a0800;
+    text-decoration: line-through;
+  }
+
+  /* NOTES */
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* CODES D'APPEL */
+  .codes-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .code-btn {
+    padding: 7px 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .code-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .code-btn.active { background: #0f1a00; border-color: var(--accent); color: var(--accent); }
+
+  /* BOUTON GÉNÉRER */
+  .btn-generate {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+
+  .btn-generate:hover { background: #d4ff1a; }
+  .btn-generate:active { transform: scale(0.99); }
+
+  /* OUTPUT */
+  .output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .output-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .btn-copy {
+    padding: 5px 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+  }
+
+  .btn-copy:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-copy.copied { border-color: #7acc7a; color: #7acc7a; }
+
+  .output-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 16px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #ccc;
+    white-space: pre-wrap;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 300px;
+  }
+
+  .output-placeholder {
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  /* UPDATE CORPUS */
+  .update-zone {
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    background: var(--surface2);
+  }
+
+  .update-zone h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .btn-secondary {
+    padding: 7px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+    text-transform: uppercase;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn-danger {
+    padding: 7px 14px;
+    background: transparent;
+    border: 1px solid #3a1a1a;
+    color: #cc5555;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+
+  .btn-danger:hover { border-color: #cc5555; }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+    width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .modal h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+  }
+
+  .btn-confirm {
+    padding: 8px 20px;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* STATUS */
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .tag-info {
+    display: inline-flex;
+    gap: 12px;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .tag-info span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .dot-A { width: 8px; height: 8px; border-radius: 1px; background: #3a6a3a; }
+  .dot-B { width: 8px; height: 8px; border-radius: 1px; background: #3a3a6a; }
+  .dot-C { width: 8px; height: 8px; border-radius: 1px; background: #5a3f0a; }
+  .dot-D { width: 8px; height: 8px; border-radius: 1px; background: #3f0a5a; }
+
+  /* COLLAPSE */
+  .collapsible-toggle {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .collapsible-toggle:hover { color: var(--text); }
+
+  .arrow { transition: transform 0.2s; display: inline-block; }
+  .arrow.open { transform: rotate(90deg); }
+
+  .collapsible-body { display: none; }
+  .collapsible-body.open { display: block; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">⬡ Configurateur Lyrics</div>
+  <div style="display:flex;align-items:center;gap:20px;">
+    <span class="header-version"><span class="status-dot"></span>v1.0 — PC4 Pipeline</span>
+    <button class="btn-secondary" onclick="openUpdateModal()">+ Nouveau corpus</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- PANNEAU CONFIG -->
+  <div class="config-panel">
+
+    <!-- SECTION 0 : CODES D'APPEL -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">0</span>
+        <span class="section-title">Code d'appel rapide</span>
+      </div>
+      <div class="codes-grid" id="codes-grid">
+        <button class="code-btn" onclick="applyCode('couplet')">/ couplet</button>
+        <button class="code-btn" onclick="applyCode('titre-complet')">/titre-complet</button>
+        <button class="code-btn" onclick="applyCode('refrain-only')">/refrain-only</button>
+        <button class="code-btn" onclick="applyCode('pre-refrain')">/pre-refrain</button>
+        <button class="code-btn" onclick="applyCode('custom')">/custom</button>
+      </div>
+      <p style="color:var(--muted);font-size:11px;">Sélectionner un code pré-remplit la structure. Tout reste modifiable.</p>
+    </div>
+
+    <!-- SECTION 1 : CORPUS -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <span class="section-title">Sélection des corpus</span>
+      </div>
+      <p style="color:var(--muted);font-size:11px;margin-bottom:14px;">Sélectionner 2 à 8 corpus. L'ordre de sélection détermine les slots A, B, C…</p>
+      <div class="corpus-grid" id="corpus-grid"></div>
+      <div class="tag-info">
+        <span><span class="dot-A"></span> Slot A</span>
+        <span><span class="dot-B"></span> Slot B</span>
+        <span><span class="dot-C"></span> Slot C</span>
+        <span><span class="dot-D"></span> Slot D</span>
+      </div>
+    </div>
+
+    <!-- SECTION 2 : STRUCTURE -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <span class="section-title">Structure du titre</span>
+      </div>
+      <div id="structure-blocs"></div>
+      <button class="btn-secondary" onclick="addSection()" style="margin-top:8px;">+ Ajouter une section</button>
+    </div>
+
+    <!-- SECTION 3 : SCHÉMA DE RIME -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <span class="section-title">Schéma de rime global</span>
+      </div>
+      <div class="rime-grid" id="rime-grid">
+        <div class="rime-pill" onclick="toggleRime(this,'AABB')">AABB</div>
+        <div class="rime-pill" onclick="toggleRime(this,'ABAB')">ABAB</div>
+        <div class="rime-pill" onclick="toggleRime(this,'ABBA')">ABBA</div>
+        <div class="rime-pill" onclick="toggleRime(this,'AAAA')">AAAA</div>
+        <div class="rime-pill" onclick="toggleRime(this,'ABCB')">ABCB</div>
+        <div class="rime-pill" onclick="toggleRime(this,'libre')">Libre</div>
+        <div class="rime-pill" onclick="toggleRime(this,'custom')">Custom…</div>
+      </div>
+      <input type="text" id="rime-custom" placeholder="Saisir un schéma personnalisé" style="display:none;margin-top:8px;">
+    </div>
+
+    <!-- SECTION 4 : SCHÉMA DE TENSION -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <span class="section-title">Schéma de tension</span>
+      </div>
+      <p style="color:var(--muted);font-size:11px;margin-bottom:16px;">Définir la fonction narrative de chaque vers. Le Générateur cible l'extraction en fonction de ces contraintes, pas des "meilleurs" hémistiches disponibles.</p>
+      <div id="tension-sections"></div>
+    </div>
+
+    <!-- SECTION 5 : NOTES LIBRES -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <span class="section-title">Notes libres</span>
+      </div>
+      <textarea id="notes-libres" placeholder="Instructions spécifiques à cette mission — registre particulier, contraintes supplémentaires, thématique globale souhaitée…"></textarea>
+    </div>
+
+    <button class="btn-generate" onclick="generatePrompt()">▶ Générer le prompt mission</button>
+
+  </div><!-- /config-panel -->
+
+  <!-- PANNEAU OUTPUT -->
+  <div class="output-panel">
+    <div class="output-header">
+      <span class="output-title">Prompt généré</span>
+      <button class="btn-copy" id="btn-copy" onclick="copyPrompt()">Copier</button>
+    </div>
+    <div class="output-box" id="output-box">
+      <div class="output-placeholder">Le prompt apparaîtra ici après génération.</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- MODAL NOUVEAU CORPUS -->
+<div class="modal-overlay" id="modal-corpus">
+  <div class="modal">
+    <h3>+ Nouveau corpus</h3>
+    <div class="form-group">
+      <label>Code-barre</label>
+      <input type="text" id="nc-id" placeholder="CORPUS-005-ARTISTE-PROJET">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Artiste</label>
+        <input type="text" id="nc-artiste" placeholder="SDM">
+      </div>
+      <div class="form-group">
+        <label>Projet</label>
+        <input type="text" id="nc-projet" placeholder="Liens100">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Année</label>
+        <input type="number" id="nc-annee" placeholder="2024" min="2000" max="2030">
+      </div>
+      <div class="form-group">
+        <label>Compatibilité</label>
+        <select id="nc-compat">
+          <option>Haute</option>
+          <option>Moyenne</option>
+          <option>Faible</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Registre général</label>
+      <input type="text" id="nc-registre" placeholder="Rap drill / trap — Île-de-France">
+    </div>
+    <div class="form-group">
+      <label>Thèmes (un par ligne : code | nom)</label>
+      <textarea id="nc-themes" style="min-height:120px;" placeholder="₁ | Amour / relation&#10;₂ | Deuil / perte&#10;₁₀₀ | Deal / trafic"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Procédé Absurde concret</label>
+      <select id="nc-absurde">
+        <option value="true-haute">Oui — densité haute</option>
+        <option value="true-moyenne">Oui — densité moyenne</option>
+        <option value="false">Non</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeModal()">Annuler</button>
+      <button class="btn-confirm" onclick="saveNewCorpus()">Ajouter au registre</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// ÉTAT GLOBAL
+// ═══════════════════════════════════════════════════════════
+
+let state = {
+  corpusRegistry: [],
+  selectedCorpus: [],  // [{id, slot}]
+  structure: [],       // [{type, mesures, identique, rime}]
+  rimeGlobal: '',
+  customRime: '',
+  tension: {},         // {sectionIndex: [{fonction, corpus, themes, connecteurs_interdits, annotation}]}
+  notesLibres: ''
+};
+
+const FONCTIONS_TENSION = [
+  'Ouverture / constat brut (sans résolution)',
+  'Détail concret isolé',
+  'Tension non résolue',
+  'Rupture de registre',
+  'Image fixe (aucun connecteur)',
+  'Contradiction d\'un vers précédent',
+  'Absurde concret pur',
+  'Fermeture ouverte',
+  'Accroche / hook',
+  'Répétition intentionnelle',
+  'Escalade thématique',
+  'Chute / résolution partielle',
+  'Libre'
+];
+
+const CONNECTEURS_BANNIS = ['mais', 'donc', 'pourtant', 'car', 'puisque', 'ainsi', 'cependant'];
+
+const SECTION_TYPES = [
+  { id: 'C1', label: 'Couplet 1', defaultMesures: 8 },
+  { id: 'PR1', label: 'Pré-refrain 1', defaultMesures: 4 },
+  { id: 'R1', label: 'Refrain 1', defaultMesures: 4 },
+  { id: 'C2', label: 'Couplet 2', defaultMesures: 8 },
+  { id: 'PR2', label: 'Pré-refrain 2', defaultMesures: 4 },
+  { id: 'R2', label: 'Refrain 2', defaultMesures: 4 },
+  { id: 'PONT', label: 'Pont', defaultMesures: 4 },
+  { id: 'OUTRO', label: 'Outro', defaultMesures: 4 }
+];
+
+const CODES_APPEL = {
+  'couplet': [{ type: 'C1', mesures: 8, mode: 'simple' }],
+  'titre-complet': [
+    { type: 'C1', mesures: 8, mode: 'simple' },
+    { type: 'PR1', mesures: 4, mode: 'simple' },
+    { type: 'R1', mesures: 4, mode: 'simple', repeat: 2 },
+    { type: 'C2', mesures: 8, mode: 'simple' },
+    { type: 'PR2', mesures: 4, mode: 'simple', identique: 'PR1' },
+    { type: 'R2', mesures: 4, mode: 'simple', identique: 'R1' }
+  ],
+  'refrain-only': [{ type: 'R1', mesures: 4, mode: 'simple', repeat: 2 }],
+  'pre-refrain': [{ type: 'PR1', mesures: 4, mode: 'simple' }],
+  'custom': []
+};
+
+const SLOTS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+const SLOT_LABELS = ['slot-A', 'slot-B', 'slot-C', 'slot-D'];
+
+// ═══════════════════════════════════════════════════════════
+// CHARGEMENT CORPUS REGISTRY (inline data)
+// ═══════════════════════════════════════════════════════════
+
+const REGISTRY_DATA = {
+  "version": "1.0",
+  "corpus": [
+    {
+      "id": "CORPUS-001-SCH-ROOFTOP",
+      "code": "C-001",
+      "artiste": "SCH",
+      "projet": "Rooftop",
+      "annee": 2021,
+      "registre": "Rap marseillais — verlan / argot de rue / emprunts plurilingues",
+      "compatibilite": "Haute",
+      "themes": [
+        { "code": "₁", "nom": "Amour / relation amoureuse", "exposant": 1 },
+        { "code": "₂", "nom": "Deuil / perte / mort d'un proche", "exposant": 2 },
+        { "code": "₃", "nom": "Famille / mère / père", "exposant": 3 },
+        { "code": "₄", "nom": "Solitude / introspection", "exposant": 4 },
+        { "code": "₅", "nom": "Loyauté / trahison / code de rue", "exposant": 5 },
+        { "code": "₁₀", "nom": "Ascension sociale / trajectoire", "exposant": 10 },
+        { "code": "₂₀", "nom": "Critique de l'imposteur / authenticité", "exposant": 20 },
+        { "code": "₃₀", "nom": "Territoire / ville / Marseille", "exposant": 30 },
+        { "code": "₄₀", "nom": "Justice / institution / répression", "exposant": 40 },
+        { "code": "₁₀₀", "nom": "Deal / trafic / produit", "exposant": 100 },
+        { "code": "₂₀₀", "nom": "Violence / armes / menace", "exposant": 200 },
+        { "code": "₃₀₀", "nom": "Argent / richesse / cash", "exposant": 300 },
+        { "code": "₄₀₀", "nom": "Sexualité / femme comme objet statutaire", "exposant": 400 },
+        { "code": "₁₀₀₀", "nom": "Méta-rap / posture artistique", "exposant": 1000 },
+        { "code": "₂₀₀₀", "nom": "Spiritualité / Dieu / destin / mort", "exposant": 2000 },
+        { "code": "₃₀₀₀", "nom": "Références intertextuelles", "exposant": 3000 }
+      ],
+      "themes_dominants": ["Argent / richesse / cash", "Violence / armes / menace", "Deal / trafic / produit"],
+      "absurde_concret": true,
+      "absurde_densite": "haute"
+    },
+    {
+      "id": "CORPUS-002-DJADJA_DINAZ-TERMINAL7",
+      "code": "C-002",
+      "artiste": "Djadja & Dinaz",
+      "projet": "Terminal 7",
+      "annee": 2023,
+      "registre": "Rap parisien — double voix / plurilinguisme / introspection + terrain",
+      "compatibilite": "Haute",
+      "themes": [
+        { "code": "₁", "nom": "Amour / relation", "exposant": 1 },
+        { "code": "₂", "nom": "Deuil / perte", "exposant": 2 },
+        { "code": "₃", "nom": "Famille", "exposant": 3 },
+        { "code": "₄", "nom": "Solitude", "exposant": 4 },
+        { "code": "₅", "nom": "Loyauté / trahison", "exposant": 5 },
+        { "code": "₆", "nom": "Fierté / honte", "exposant": 6 },
+        { "code": "₇", "nom": "Ambition / faim", "exposant": 7 },
+        { "code": "₁₀", "nom": "Quartier / territoire", "exposant": 10 },
+        { "code": "₂₀", "nom": "Ascension sociale", "exposant": 20 },
+        { "code": "₃₀", "nom": "Rapport à la loi", "exposant": 30 },
+        { "code": "₄₀", "nom": "Politique / identité / exil", "exposant": 40 },
+        { "code": "₁₀₀", "nom": "Deal / trafic", "exposant": 100 },
+        { "code": "₂₀₀", "nom": "Violence / armes", "exposant": 200 },
+        { "code": "₃₀₀", "nom": "Argent criminel / flux / gestion", "exposant": 300 },
+        { "code": "₄₀₀", "nom": "Cavale / fuite / discrétion", "exposant": 400 },
+        { "code": "₁₀₀₀", "nom": "Rap / légitimité artistique", "exposant": 1000 },
+        { "code": "₂₀₀₀", "nom": "Spiritualité / foi / Dieu", "exposant": 2000 },
+        { "code": "₃₀₀₀", "nom": "Temps / mémoire / nostalgie", "exposant": 3000 },
+        { "code": "₄₀₀₀", "nom": "Identité / origine / héritage", "exposant": 4000 }
+      ],
+      "themes_dominants": ["Argent criminel / flux / gestion", "Deal / trafic", "Identité / origine / héritage"],
+      "absurde_concret": true,
+      "absurde_densite": "moyenne"
+    }
+  ]
+};
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+
+function init() {
+  // Charger depuis localStorage si dispo, sinon utiliser données inline
+  const saved = localStorage.getItem('corpus_registry');
+  if (saved) {
+    try {
+      state.corpusRegistry = JSON.parse(saved).corpus;
+    } catch(e) {
+      state.corpusRegistry = REGISTRY_DATA.corpus;
+    }
+  } else {
+    state.corpusRegistry = REGISTRY_DATA.corpus;
+  }
+  renderCorpusGrid();
+  applyCode('titre-complet');
+}
+
+function saveRegistry() {
+  const data = { version: '1.0', last_updated: new Date().toISOString().slice(0,10), corpus: state.corpusRegistry };
+  localStorage.setItem('corpus_registry', JSON.stringify(data));
+}
+
+// ═══════════════════════════════════════════════════════════
+// CORPUS GRID
+// ═══════════════════════════════════════════════════════════
+
+function renderCorpusGrid() {
+  const grid = document.getElementById('corpus-grid');
+  grid.innerHTML = '';
+  state.corpusRegistry.forEach(c => {
+    const selected = state.selectedCorpus.find(s => s.id === c.id);
+    const slotIdx = selected ? state.selectedCorpus.indexOf(selected) : -1;
+    const div = document.createElement('div');
+    div.className = `corpus-card${selected ? ' selected' : ''}`;
+    div.onclick = () => toggleCorpus(c.id);
+    div.innerHTML = `
+      <div class="corpus-code">${c.id}</div>
+      <div class="corpus-artiste">${c.artiste}</div>
+      <div class="corpus-projet">${c.projet} — ${c.annee}</div>
+      ${selected ? `<span class="corpus-slot-label ${SLOT_LABELS[slotIdx] || 'slot-A'}">Slot ${SLOTS[slotIdx]}</span>` : ''}
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function toggleCorpus(id) {
+  const idx = state.selectedCorpus.findIndex(s => s.id === id);
+  if (idx >= 0) {
+    state.selectedCorpus.splice(idx, 1);
+    // Re-slot
+    state.selectedCorpus = state.selectedCorpus.map((s, i) => ({ ...s, slot: SLOTS[i] }));
+  } else {
+    if (state.selectedCorpus.length >= 8) return;
+    state.selectedCorpus.push({ id, slot: SLOTS[state.selectedCorpus.length] });
+  }
+  renderCorpusGrid();
+  renderTensionSections();
+}
+
+// ═══════════════════════════════════════════════════════════
+// CODES D'APPEL
+// ═══════════════════════════════════════════════════════════
+
+function applyCode(code) {
+  document.querySelectorAll('.code-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const template = CODES_APPEL[code];
+  if (!template) return;
+
+  state.structure = template.map((s, i) => ({
+    ...s,
+    id: i,
+    mode: 'simple',
+    rimePerso: ''
+  }));
+
+  renderStructure();
+  renderTensionSections();
+}
+
+// ═══════════════════════════════════════════════════════════
+// STRUCTURE
+// ═══════════════════════════════════════════════════════════
+
+function renderStructure() {
+  const container = document.getElementById('structure-blocs');
+  container.innerHTML = '';
+
+  state.structure.forEach((sec, i) => {
+    const div = document.createElement('div');
+    div.className = 'structure-bloc';
+
+    const repeatOpts = [1,2,3].map(n => `<option value="${n}" ${sec.repeat === n ? 'selected' : ''}>${n}×</option>`).join('');
+    const identOpts = state.structure
+      .filter((s, j) => j < i && ['R1','PR1'].includes(s.type))
+      .map(s => `<option value="${s.type}" ${sec.identique === s.type ? 'selected' : ''}>= ${SECTION_TYPES.find(t=>t.id===s.type)?.label || s.type}</option>`)
+      .join('');
+
+    div.innerHTML = `
+      <div class="structure-bloc-header">
+        <span class="structure-bloc-title">${SECTION_TYPES.find(t=>t.id===sec.type)?.label || sec.type}</span>
+        <div class="structure-bloc-controls">
+          <div>
+            <label style="margin-bottom:2px;">Type</label>
+            <select onchange="updateSection(${i},'type',this.value)">
+              ${SECTION_TYPES.map(t => `<option value="${t.id}" ${sec.type===t.id?'selected':''}>${t.label}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label style="margin-bottom:2px;">Mesures</label>
+            <input type="number" value="${sec.mesures}" min="2" max="32" style="width:60px;" onchange="updateSection(${i},'mesures',+this.value)">
+          </div>
+          <div>
+            <label style="margin-bottom:2px;">Répéter</label>
+            <select onchange="updateSection(${i},'repeat',+this.value)">
+              ${repeatOpts}
+            </select>
+          </div>
+          ${identOpts ? `<div>
+            <label style="margin-bottom:2px;">Identique à</label>
+            <select onchange="updateSection(${i},'identique',this.value)">
+              <option value="">—</option>
+              ${identOpts}
+            </select>
+          </div>` : ''}
+        </div>
+        <button class="btn-danger" onclick="removeSection(${i})" style="font-size:16px;padding:4px 10px;">×</button>
+      </div>
+      <div class="structure-bloc-body">
+        <button class="collapsible-toggle" onclick="toggleCollapse(this)">
+          <span class="arrow">▶</span> Réglages avancés
+        </button>
+        <div class="collapsible-body">
+          <div style="margin-top:12px;">
+            <label>Mode d'assignation corpus</label>
+            <div class="mode-switch">
+              <button class="mode-btn ${sec.mode!=='avance'?'active':''}" onclick="setSectionMode(${i},'simple')">Simple</button>
+              <button class="mode-btn ${sec.mode==='avance'?'active':''}" onclick="setSectionMode(${i},'avance')">Avancé H1/H2</button>
+            </div>
+            <div id="mode-content-${i}">
+              ${sec.mode === 'avance' ? renderHemiTableHTML(i, sec.mesures) : renderSimpleModeHTML(i, sec.mesures)}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function renderSimpleModeHTML(sectionIdx, mesures) {
+  const corpusOpts = getCorpusOptions();
+  let html = '<div class="tension-grid" style="margin-top:8px;">';
+  for (let v = 1; v <= mesures; v++) {
+    const key = `s${sectionIdx}_v${v}_corpus`;
+    const saved = state[key] || '';
+    html += `
+      <div class="tension-row" style="grid-template-columns:40px 1fr;">
+        <span class="v-label">V${v}</span>
+        <select onchange="state['${key}']=this.value" style="width:100%;">
+          <option value="">Libre</option>
+          ${corpusOpts.map(c => `<option value="${c.id}" ${saved===c.id?'selected':''}>${c.slot} — ${c.artiste}</option>`).join('')}
+        </select>
+      </div>
+    `;
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderHemiTableHTML(sectionIdx, mesures) {
+  const corpusOpts = getCorpusOptions();
+  const optHtml = `<option value="">Libre</option>${corpusOpts.map(c => `<option value="${c.id}">${c.slot} — ${c.artiste}</option>`).join('')}`;
+
+  let html = `<table class="hemistiche-table" style="margin-top:8px;">
+    <thead>
+      <tr>
+        <th>Vers</th>
+        <th>H1 (1ère partie)</th>
+        <th>H2 (2ème partie)</th>
+      </tr>
+    </thead>
+    <tbody>`;
+
+  for (let v = 1; v <= mesures; v++) {
+    const k1 = `s${sectionIdx}_v${v}_h1`;
+    const k2 = `s${sectionIdx}_v${v}_h2`;
+    const saved1 = state[k1] || '';
+    const saved2 = state[k2] || '';
+    html += `
+      <tr>
+        <td class="vers-num">V${v}</td>
+        <td>
+          <select onchange="state['${k1}']=this.value">
+            ${optHtml.replace(`value="${saved1}"`, `value="${saved1}" selected`)}
+          </select>
+        </td>
+        <td>
+          <select onchange="state['${k2}']=this.value">
+            ${optHtml.replace(`value="${saved2}"`, `value="${saved2}" selected`)}
+          </select>
+        </td>
+      </tr>
+    `;
+  }
+  html += '</tbody></table>';
+  return html;
+}
+
+function getCorpusOptions() {
+  return state.selectedCorpus.map(s => {
+    const c = state.corpusRegistry.find(r => r.id === s.id);
+    return { id: s.id, slot: s.slot, artiste: c?.artiste || s.id };
+  });
+}
+
+function updateSection(i, key, val) {
+  state.structure[i][key] = val;
+  if (key === 'mesures' || key === 'type') {
+    renderStructure();
+    renderTensionSections();
+  } else {
+    renderStructure();
+  }
+}
+
+function setSectionMode(i, mode) {
+  state.structure[i].mode = mode;
+  renderStructure();
+}
+
+function removeSection(i) {
+  state.structure.splice(i, 1);
+  renderStructure();
+  renderTensionSections();
+}
+
+function addSection() {
+  const nextType = SECTION_TYPES[state.structure.length % SECTION_TYPES.length];
+  state.structure.push({ type: nextType.id, mesures: nextType.defaultMesures, mode: 'simple', repeat: 1 });
+  renderStructure();
+  renderTensionSections();
+}
+
+function toggleCollapse(btn) {
+  const arrow = btn.querySelector('.arrow');
+  const body = btn.nextElementSibling;
+  arrow.classList.toggle('open');
+  body.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════════
+// RIME
+// ═══════════════════════════════════════════════════════════
+
+function toggleRime(el, val) {
+  document.querySelectorAll('.rime-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  state.rimeGlobal = val;
+  const customInput = document.getElementById('rime-custom');
+  customInput.style.display = val === 'custom' ? 'block' : 'none';
+  if (val !== 'custom') state.customRime = '';
+}
+
+document.getElementById('rime-custom').addEventListener('input', function() {
+  state.customRime = this.value;
+});
+
+// ═══════════════════════════════════════════════════════════
+// SCHÉMA DE TENSION
+// ═══════════════════════════════════════════════════════════
+
+function renderTensionSections() {
+  const container = document.getElementById('tension-sections');
+  container.innerHTML = '';
+
+  state.structure.forEach((sec, sIdx) => {
+    const sLabel = SECTION_TYPES.find(t => t.id === sec.type)?.label || sec.type;
+    const secDiv = document.createElement('div');
+    secDiv.style.marginBottom = '24px';
+
+    const corpusOpts = getCorpusOptions();
+    const corpusOptHtml = `<option value="libre">Libre</option>${corpusOpts.map(c => `<option value="${c.id}">${c.slot} — ${c.artiste}</option>`).join('')}`;
+
+    let tableHTML = `
+      <div style="font-family:'Syne',sans-serif;font-weight:600;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">${sLabel}</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:grid;grid-template-columns:36px 1fr 140px;gap:6px;align-items:center;padding-bottom:6px;border-bottom:1px solid var(--border);">
+          <span style="font-size:10px;color:var(--muted);text-align:center;">V</span>
+          <span style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">Fonction narrative</span>
+          <span style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">Corpus</span>
+        </div>
+    `;
+
+    for (let v = 1; v <= sec.mesures; v++) {
+      const tKey = `t_s${sIdx}_v${v}`;
+      const cKey = `tc_s${sIdx}_v${v}`;
+      const thKey = `th_s${sIdx}_v${v}`;
+      const connKey = `conn_s${sIdx}_v${v}`;
+      const annKey = `ann_s${sIdx}_v${v}`;
+
+      if (!state[tKey]) state[tKey] = FONCTIONS_TENSION[Math.min(v-1, FONCTIONS_TENSION.length-1)];
+      if (!state[cKey]) state[cKey] = 'libre';
+      if (!state[thKey]) state[thKey] = [];
+      if (!state[connKey]) state[connKey] = [];
+
+      tableHTML += `
+        <div style="display:grid;grid-template-columns:36px 1fr 140px;gap:6px;align-items:start;">
+          <span class="v-label" style="margin-top:6px;">V${v}</span>
+          <div>
+            <select style="width:100%;font-size:11px;" onchange="state['${tKey}']=this.value">
+              ${FONCTIONS_TENSION.map(f => `<option value="${f}" ${state[tKey]===f?'selected':''}>${f}</option>`).join('')}
+            </select>
+            <div style="margin-top:4px;">
+              <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Thèmes ciblés</div>
+              <div class="theme-container" id="themes-${sIdx}-${v}" onclick="openThemePicker(${sIdx},${v},event)">
+                ${renderThemeTags(sIdx, v)}
+                <span style="font-size:10px;color:var(--muted);font-style:italic;" id="add-theme-${sIdx}-${v}">${state[thKey].length === 0 ? '+ ajouter' : ''}</span>
+              </div>
+            </div>
+            <div style="margin-top:4px;">
+              <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">Connecteurs interdits</div>
+              <div class="connecteur-row" id="conn-${sIdx}-${v}">
+                ${CONNECTEURS_BANNIS.map(c => `
+                  <span class="connecteur-tag ${state[connKey].includes(c) ? 'forbidden' : ''}" onclick="toggleConnecteur(${sIdx},${v},'${c}',this)">${c}</span>
+                `).join('')}
+              </div>
+            </div>
+            <div style="margin-top:4px;">
+              <input type="text" placeholder="Annotation libre pour ce vers…" value="${state[annKey]||''}" 
+                onchange="state['${annKey}']=this.value"
+                style="font-size:11px;padding:4px 7px;">
+            </div>
+          </div>
+          <select style="font-size:11px;padding:5px 7px;" onchange="state['${cKey}']=this.value">
+            ${corpusOptHtml.replace(`value="${state[cKey]}"`, `value="${state[cKey]}" selected`)}
+          </select>
+        </div>
+      `;
+    }
+
+    tableHTML += '</div>';
+    secDiv.innerHTML = tableHTML;
+    container.appendChild(secDiv);
+  });
+}
+
+function renderThemeTags(sIdx, v) {
+  const thKey = `th_s${sIdx}_v${v}`;
+  const themes = state[thKey] || [];
+  return themes.map(t => {
+    const slotIdx = state.selectedCorpus.findIndex(s => s.id === t.corpusId);
+    const cls = `corpus-${SLOTS[slotIdx] || 'A'}`;
+    return `<span class="theme-tag ${cls}" onclick="removeTheme(${sIdx},${v},'${t.code}',event)">${t.nom} ×</span>`;
+  }).join('');
+}
+
+function openThemePicker(sIdx, vIdx, event) {
+  event.stopPropagation();
+  // Fermer tout dropdown existant
+  document.querySelectorAll('.theme-dropdown').forEach(d => d.remove());
+
+  if (state.selectedCorpus.length === 0) return;
+
+  const dropdown = document.createElement('div');
+  dropdown.className = 'theme-dropdown';
+
+  state.selectedCorpus.forEach((sel, slotIdx) => {
+    const corpus = state.corpusRegistry.find(c => c.id === sel.id);
+    if (!corpus) return;
+    const slotLabel = document.createElement('div');
+    slotLabel.style.cssText = 'padding:6px 12px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border);';
+    slotLabel.textContent = `Slot ${sel.slot} — ${corpus.artiste}`;
+    dropdown.appendChild(slotLabel);
+
+    corpus.themes.forEach(t => {
+      const item = document.createElement('div');
+      item.className = 'theme-dropdown-item';
+      item.innerHTML = `<span class="code">${t.code}</span><span>${t.nom}</span>`;
+      item.onclick = () => {
+        addTheme(sIdx, vIdx, { code: t.code, nom: t.nom, corpusId: sel.id, exposant: t.exposant });
+        dropdown.remove();
+      };
+      dropdown.appendChild(item);
+    });
+  });
+
+  document.body.appendChild(dropdown);
+  const rect = event.currentTarget.getBoundingClientRect();
+  dropdown.style.position = 'fixed';
+  dropdown.style.top = (rect.bottom + 4) + 'px';
+  dropdown.style.left = rect.left + 'px';
+
+  document.addEventListener('click', () => dropdown.remove(), { once: true });
+}
+
+function addTheme(sIdx, v, theme) {
+  const thKey = `th_s${sIdx}_v${v}`;
+  if (!state[thKey]) state[thKey] = [];
+  if (!state[thKey].find(t => t.code === theme.code && t.corpusId === theme.corpusId)) {
+    state[thKey].push(theme);
+  }
+  const container = document.getElementById(`themes-${sIdx}-${v}`);
+  if (container) {
+    container.innerHTML = renderThemeTags(sIdx, v) + `<span style="font-size:10px;color:var(--muted);font-style:italic;" id="add-theme-${sIdx}-${v}">+ ajouter</span>`;
+  }
+}
+
+function removeTheme(sIdx, v, code, event) {
+  event.stopPropagation();
+  const thKey = `th_s${sIdx}_v${v}`;
+  state[thKey] = (state[thKey] || []).filter(t => t.code !== code);
+  const container = document.getElementById(`themes-${sIdx}-${v}`);
+  if (container) {
+    container.innerHTML = renderThemeTags(sIdx, v) + `<span style="font-size:10px;color:var(--muted);font-style:italic;">+ ajouter</span>`;
+  }
+}
+
+function toggleConnecteur(sIdx, v, conn, el) {
+  const connKey = `conn_s${sIdx}_v${v}`;
+  if (!state[connKey]) state[connKey] = [];
+  const idx = state[connKey].indexOf(conn);
+  if (idx >= 0) {
+    state[connKey].splice(idx, 1);
+    el.classList.remove('forbidden');
+  } else {
+    state[connKey].push(conn);
+    el.classList.add('forbidden');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// GÉNÉRATION PROMPT
+// ═══════════════════════════════════════════════════════════
+
+function generatePrompt() {
+  const now = new Date();
+  const dateStr = now.toISOString().replace(/[-:T]/g, '').slice(0,12);
+
+  if (state.selectedCorpus.length < 2) {
+    alert('Sélectionner au minimum 2 corpus.');
+    return;
+  }
+
+  const rime = state.rimeGlobal === 'custom' ? state.customRime : state.rimeGlobal;
+
+  let prompt = `═══════════════════════════════════════════════════════\n`;
+  prompt += `MISSION-${dateStr}\n`;
+  prompt += `═══════════════════════════════════════════════════════\n\n`;
+
+  // STRUCTURE
+  prompt += `STRUCTURE\n${'─'.repeat(40)}\n`;
+  state.structure.forEach(sec => {
+    const sLabel = SECTION_TYPES.find(t => t.id === sec.type)?.label || sec.type;
+    const repeat = sec.repeat > 1 ? ` × ${sec.repeat}` : '';
+    const identique = sec.identique ? ` [= ${sec.identique}]` : '';
+    prompt += `${sec.type.padEnd(6)} : ${sec.mesures} mesures${repeat}${identique}\n`;
+  });
+  prompt += '\n';
+
+  // CORPUS
+  prompt += `CORPUS ACTIFS\n${'─'.repeat(40)}\n`;
+  state.selectedCorpus.forEach(sel => {
+    const c = state.corpusRegistry.find(r => r.id === sel.id);
+    prompt += `Slot ${sel.slot} : ${sel.id}`;
+    if (c) prompt += ` — ${c.artiste} / ${c.projet} (${c.annee})`;
+    if (c?.absurde_concret) prompt += ` [absurde concret : ${c.absurde_densite}]`;
+    prompt += '\n';
+  });
+  prompt += '\n';
+
+  // RIME
+  if (rime) {
+    prompt += `SCHÉMA DE RIME\n${'─'.repeat(40)}\n`;
+    prompt += `Global : ${rime}\n\n`;
+  }
+
+  // SCHÉMA DE TENSION
+  prompt += `SCHÉMA DE TENSION\n${'─'.repeat(40)}\n`;
+  state.structure.forEach((sec, sIdx) => {
+    const sLabel = SECTION_TYPES.find(t => t.id === sec.type)?.label || sec.type;
+    prompt += `\n[${sLabel}]\n`;
+
+    for (let v = 1; v <= sec.mesures; v++) {
+      const tKey = `t_s${sIdx}_v${v}`;
+      const cKey = `tc_s${sIdx}_v${v}`;
+      const thKey = `th_s${sIdx}_v${v}`;
+      const connKey = `conn_s${sIdx}_v${v}`;
+      const annKey = `ann_s${sIdx}_v${v}`;
+
+      const fonction = state[tKey] || 'Libre';
+      const corpus = state[cKey] || 'libre';
+      const themes = state[thKey] || [];
+      const conns = state[connKey] || [];
+      const ann = state[annKey] || '';
+
+      let corpusLabel = 'Libre';
+      if (corpus !== 'libre') {
+        const sel = state.selectedCorpus.find(s => s.id === corpus);
+        const c = state.corpusRegistry.find(r => r.id === corpus);
+        if (sel && c) corpusLabel = `Slot ${sel.slot} (${c.artiste})`;
+      }
+
+      // Mode avancé H1/H2
+      const h1Key = `s${sIdx}_v${v}_h1`;
+      const h2Key = `s${sIdx}_v${v}_h2`;
+      let hemiInfo = '';
+      if (sec.mode === 'avance' && (state[h1Key] || state[h2Key])) {
+        const getSlotLabel = (id) => {
+          if (!id) return 'Libre';
+          const sel = state.selectedCorpus.find(s => s.id === id);
+          const c = state.corpusRegistry.find(r => r.id === id);
+          return sel && c ? `Slot ${sel.slot} (${c.artiste})` : 'Libre';
+        };
+        hemiInfo = ` | H1: ${getSlotLabel(state[h1Key])} — H2: ${getSlotLabel(state[h2Key])}`;
+      }
+
+      prompt += `V${v}  fonction : ${fonction}\n`;
+      prompt += `     corpus   : ${corpusLabel}${hemiInfo}\n`;
+
+      if (themes.length > 0) {
+        const themeStr = themes.map(t => {
+          const sel = state.selectedCorpus.find(s => s.id === t.corpusId);
+          const slotLabel = sel ? `[Slot ${sel.slot}] ` : '';
+          return `${slotLabel}${t.code} ${t.nom} (₍${t.exposant}₎)`;
+        }).join(' + ');
+        prompt += `     thèmes   : ${themeStr}\n`;
+      }
+
+      if (conns.length > 0) {
+        prompt += `     ⚠ INTERDITS : ${conns.join(', ')}\n`;
+      }
+
+      if (ann) {
+        prompt += `     note     : ${ann}\n`;
+      }
+    }
+  });
+  prompt += '\n';
+
+  // RÈGLE VARIANCE
+  prompt += `RÈGLES D'EXTRACTION\n${'─'.repeat(40)}\n`;
+  prompt += `— Sélectionner les hémistiches selon la FONCTION NARRATIVE du vers, pas selon leur qualité intrinsèque\n`;
+  prompt += `— Un hémistiche "plat" ou "banal" est préférable à un hémistiche "profond" si la fonction l'exige\n`;
+  prompt += `— Interdire la résolution systématique : tous les vers ne doivent pas aboutir à une conclusion\n`;
+  prompt += `— Varier les longueurs perçues et les densités d'argot entre vers adjacents\n`;
+  prompt += `— L'absurde concret s'applique UNIQUEMENT aux corpus marqués [absurde concret : haute/moyenne]\n\n`;
+
+  // NOTES
+  const notes = document.getElementById('notes-libres').value.trim();
+  if (notes) {
+    prompt += `NOTES LIBRES\n${'─'.repeat(40)}\n${notes}\n\n`;
+  }
+
+  prompt += `═══════════════════════════════════════════════════════\n`;
+  prompt += `FIN MISSION-${dateStr}\n`;
+  prompt += `═══════════════════════════════════════════════════════`;
+
+  document.getElementById('output-box').textContent = prompt;
+  document.getElementById('output-box').style.color = '#ccc';
+}
+
+function copyPrompt() {
+  const text = document.getElementById('output-box').textContent;
+  if (!text || text.includes('apparaîtra ici')) return;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = '✓ Copié';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODAL NOUVEAU CORPUS
+// ═══════════════════════════════════════════════════════════
+
+function openUpdateModal() {
+  document.getElementById('modal-corpus').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal-corpus').classList.remove('open');
+}
+
+function saveNewCorpus() {
+  const id = document.getElementById('nc-id').value.trim();
+  const artiste = document.getElementById('nc-artiste').value.trim();
+  const projet = document.getElementById('nc-projet').value.trim();
+  const annee = parseInt(document.getElementById('nc-annee').value) || 2024;
+  const registre = document.getElementById('nc-registre').value.trim();
+  const compat = document.getElementById('nc-compat').value;
+  const absurdeVal = document.getElementById('nc-absurde').value;
+  const themesRaw = document.getElementById('nc-themes').value.trim();
+
+  if (!id || !artiste) { alert('Code-barre et artiste obligatoires.'); return; }
+  if (state.corpusRegistry.find(c => c.id === id)) { alert('Ce code-barre existe déjà.'); return; }
+
+  const themes = themesRaw.split('\n').filter(l => l.includes('|')).map(l => {
+    const [code, nom] = l.split('|').map(s => s.trim());
+    return { code, nom, exposant: 0 };
+  });
+
+  const newCorpus = {
+    id, artiste, projet, annee, registre,
+    code: id.split('-').slice(0,2).join('-'),
+    compatibilite: compat,
+    themes,
+    themes_dominants: [],
+    absurde_concret: absurdeVal !== 'false',
+    absurde_densite: absurdeVal === 'true-haute' ? 'haute' : absurdeVal === 'true-moyenne' ? 'moyenne' : 'non'
+  };
+
+  state.corpusRegistry.push(newCorpus);
+  saveRegistry();
+  closeModal();
+  renderCorpusGrid();
+
+  // Reset modal
+  ['nc-id','nc-artiste','nc-projet','nc-annee','nc-registre','nc-themes'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+
+  alert(`✓ ${newCorpus.id} ajouté au registre.`);
+}
+
+// Fermer modal en cliquant dehors
+document.getElementById('modal-corpus').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ═══════════════════════════════════════════════════════════
+// LANCEMENT
+// ═══════════════════════════════════════════════════════════
+init();
+</script>
+</body>
+</html>

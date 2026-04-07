@@ -1,0 +1,14 @@
+{
+  "corpus": "corpus_brut.md",
+  "artiste": "SCH",
+  "projet": "JULIUS",
+  "slug": "sch-julius",
+  "etape_courante": 1,
+  "scan_status": "terminé",
+  "desambiguisation_status": "en_attente_H",
+  "annotation_expo_status": "non_démarrée",
+  "cartographie_status": "non_démarrée",
+  "annotation_thematique_status": "non_démarrée",
+  "assemblage_status": "non_démarré",
+  "date_debut": "2026-04-07"
+}
