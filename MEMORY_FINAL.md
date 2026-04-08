@@ -95,3 +95,16 @@ PC4/output/CORPUS-[NNN]-[ARTISTE]-[PROJET]/
 | temperature: 0 | Tâches répétitives — stabilité prioritaire |
 | Prompt caching sur lexique + corpus | Coût quasi nul après le premier appel |
 | Corrections au moment de la génération | Plus efficace que valider dans le vide à chaque corpus |
+
+---
+
+## Double utilisation Mac + iPhone
+
+Ce projet est utilisé depuis DEUX appareils :
+- Mon Mac (Claude Code local)
+- Mon iPhone (app Claude, onglet Code)
+
+Règles :
+- Mon comportement doit être IDENTIQUE sur les deux
+- Je ne dois pas mentionner GitHub ou la synchronisation sauf demande explicite
+- Les fichiers sont les mêmes, le projet est le même
