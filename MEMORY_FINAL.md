@@ -126,46 +126,35 @@ Tout commit et push se fait sur la branche de travail désignée. La branche `ma
 
 ---
 
-## Problème structurel — lexique_master.md incomplet
+## Localisation et usage du lexique complet
 
-### Constat (2026-04-10)
+### Fichiers lexique
 
-Le fichier `etude/lexique_master.md` ne contient **pas** le lexique cumulatif complet. Il contient uniquement la dernière mise à jour (CORPUS-003-DJADJA_DINAZ-SPLEEN, 14 termes). Les termes des 7 corpus précédents ne sont pas listés terme par terme dans ce fichier.
+| Fichier | Contenu | Usage |
+|---------|---------|-------|
+| `registre/lexique_master.md.md` | **Lexique cumulatif complet** — 54 catégories, tous corpus | Référence principale — lire en début de désambiguïsation |
+| `etude/lexique_master.md` | Dernière mise à jour uniquement (CORPUS-003) | Ne pas utiliser seul — incomplet |
 
-**Conséquence :** le scan delta (ÉTAPE 1) peut générer des faux positifs — termes déjà validés dans un corpus antérieur mais absents du fichier lexique courant.
-
-### Termes confirmés présents dans le lexique (à ce jour)
-
-| Terme | Source |
-|-------|--------|
-| 2.8 | CORPUS-003-001 |
-| 1 point | CORPUS-003-001 |
-| biff | CORPUS-003-002 |
-| chantier | CORPUS-003-002 |
-| doré | CORPUS-003-002 |
-| soké | CORPUS-003-002 |
-| tales | CORPUS-003-003 |
-| sucer | CORPUS-003-004 |
-| cher-lâ | CORPUS-003-005 |
-| skalape / scalape | CORPUS-003-006 |
-| bé-tom | CORPUS-003-007 |
-| laud-sa | CORPUS-003-008 |
-| narvalo | CORPUS-003-008 |
-| VAR | CORPUS-003-004 |
-| hendek | Terminal 7 (confirmé SPLEEN) |
-| keufs | Oboy / Olyboy (confirmé SPLEEN) |
-| bolide | CORPUS-003-001 |
+⚠️ **Le fichier complet est dans `registre/`, pas dans `etude/`.** Toujours lire `registre/lexique_master.md.md` avant de désambiguïser.
 
 ### Règle pour la désambiguïsation
 
-Au début de chaque session de désambiguïsation :
-1. Lire `etude/lexique_master.md` pour connaître les termes déjà validés
-2. Tout terme du delta présent dans cette liste → **skip, déjà dans le lexique**
-3. Pour les corpus antérieurs non documentés → signaler à H si doute sur un doublon
+Au début de chaque session :
+1. Lire `registre/lexique_master.md.md` (grep sur les termes du delta)
+2. Tout terme déjà présent → **skip, noter comme doublon confirmé**
+3. Terme absent → soumettre à H pour validation
 
-### Action requise (H)
+### Doublons confirmés — corpus SCH/JULIUS (2026-04-10)
 
-Le lexique_master.md doit être reconstruit comme fichier cumulatif complet (tous corpus, tous termes). Tant que ce n'est pas fait, des doublons sont possibles à chaque nouveau corpus.
+Ces termes du delta sont déjà dans le lexique — skippés lors de la désambiguïsation :
+
+| Terme | Catégorie lexique |
+|-------|-------------------|
+| gadjo | Cat. gitan — individu lambda |
+| pélo | Cat. gitan — individu lambda (ancrage lyonnais) |
+| prométhazine | Cat. 12 — lean/sirop codéiné |
+| biff | Cat. 21 — argent |
+| gamos | Cat. 5 — voiture de luxe générique |
 
 ---
 
