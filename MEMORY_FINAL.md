@@ -126,6 +126,37 @@ Tout commit et push se fait sur la branche de travail désignée. La branche `ma
 
 ---
 
+## Règle d'interchangeabilité (segments instables)
+
+### Définition opérationnelle
+
+Un segment est marqué **instable** (interchangeable) quand il remplit au moins une de ces conditions :
+
+| Condition | Description |
+|-----------|-------------|
+| **Trop daté** | Référence culturelle/événementielle sortie du circuit rap actif |
+| **Trop réseau-spécifique** | Argot d'un groupe/quartier/clique sans diffusion large |
+| **Trop contextuellement opaque** | Le vers perd sens sans connaissance externe très précise |
+| **Phonétiquement contraint** | Le terme ne peut être remplacé sans casser la rime/la métrique |
+
+### Traitement
+
+Chaque segment instable reçoit une **substitution rationnelle** : un terme ou expression de même sens/registre qui préserverait rime et métrique dans la phase de génération.
+
+### Notation dans le lexique
+
+- Segment instable → marqué `***terme***` (gras italique) dans le corpus annoté
+- Substitution → notée dans le champ `VARIANTES` de l'entrée lexicale
+- L'implicature porte sur le sens stable sous-jacent, pas sur le terme instable lui-même
+
+### Exemples validés
+
+| Terme | Condition d'instabilité | Substitution rationnelle |
+|-------|------------------------|--------------------------|
+| Vésuve | trop contextuellement opaque | *mare de sang* (encodage violence originel) |
+
+---
+
 ## Décisions architecturales
 
 | Décision | Raison |
