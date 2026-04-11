@@ -18,8 +18,8 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 | Champ | Valeur |
 |-------|--------|
 | Nombre de catégories | 54 |
-| Corpus sources | Hamza / MANIA · SCH / JVLIVS III : Ad Finem · corpus gitan · Freeze Corleone / LMF · SCH / Rooftop · Djadja & Dinaz / Terminal 7 · Oboy / Olyboy |
-| Dernière mise à jour | 2026-03-30 |
+| Corpus sources | Hamza / MANIA · SCH / JVLIVS III : Ad Finem · corpus gitan · Freeze Corleone / LMF · SCH / Rooftop · Djadja & Dinaz / Terminal 7 · Djadja & Dinaz / SPLEEN · Oboy / Olyboy · SCH / JULIUS |
+| Dernière mise à jour | 2026-04-11 |
 
 ---
 
@@ -116,8 +116,9 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Rolex Oyster Perpetual / générique*** → ***Rollie*** — forme argotique générique désignant une Rolex sans modèle précis — *Oboy / Olyboy*
 - ***Cartier Skeleton*** → ***Cartier Skeleton*** — modèle squelette, affichage mécanique — *Oboy / Olyboy*
 - ***Rolex Yacht-Master*** → ***Yacht Master*** — modèle nautique de prestige — *Oboy / Olyboy*
+- ***Rolex Skydweller*** → ***Skydweller*** — montre de fuseau horaire multiple, statut absolu, haut de gamme Rolex — *Skydweller v.25 : « ma tain-p' a sa Skydweller »* — CORPUS-004-SCH-JULIUS
 
-**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy
+**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -166,13 +167,20 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 
 > ⚠️ **Note sous-catégorie marque allemande :** dans le corpus Oboy, l'origine allemande (Mercedes, BMW, Audi, Porsche) encode spécifiquement l'ingénierie supérieure et la puissance — implicature distincte de l'ostentation pure. Le membre ***Merco*** (Mercedes) est déjà présent ; ***BMW***, ***Audi***, ***Porsche*** fonctionnent dans ce registre additionnel. Ne pas substituer un véhicule allemand de prestige par une supercar italienne dans un vers où l'implicature d'ingénierie est active.
 
+*SUV / van de prestige discret :*
+- ***Mercedes Viano*** → ***Viano*** — van de groupe discret et spacieux, déplacement sans ostentation — *Mort de Rire v.35 : « on repart en Viano »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+
+*Supercars — désignations argotiques de la Ferrari :*
+- ***Féfés*** → Ferrari (contraction argotique plurielle) — richesse extrême, capacité à s'acheter plusieurs supercars — *Facile v.6 : « j'suis déjà solvable pour deux-trois Féfés »* — CORPUS-004-SCH-JULIUS
+- ***'rarri*** → Ferrari (troncation argotique) — supercar de luxe suprême — *Mort de Rire v.28 : « yearling sur ma 'rarri »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; voir aussi cat. 18 : ***Baron Rouge***)
+
 *Membres à usage restreint — construction protégée :*
 - ***Nissan Juke*** — *Desiigner : « j'arrive Japonais comme une Nissan Juke »*
 - ***Ford Escape*** — *Desiigner : « j'arrive Américain comme une Ford Escape »*
 
 > ⚠️ **CONSTRUCTION PROTÉGÉE — NE JAMAIS REPRODUIRE :** le patron `j'arrive [gentilé national] comme une [marque encodant cette nationalité]` est une construction originale propre à Freeze Corleone. Reproduire ce schéma tel quel dans un corpus tiers constituerait du pastiche, non de la substitution. Les membres Nissan Juke et Ford Escape sont inscrits pour référence et décodage analytique uniquement — ils ne sont pas substituables dans le cadre d'une composition originale.
 
-**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy
+**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -194,8 +202,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Aprilia RSV4*** → ***RSV*** / ***Aprilia***
 - ***KTM RC 390*** → ***KTM*** / ***RC***
 - ***TMAX 530*** → ***TMAX*** / ***T*** / ***530***
+- ***Honda X-ADV*** → ***X-ADV*** — scooter aventure, mobilité urbaine agressive de rue avec casque intégral — *Facile v.27 : « X-ADV, casque intégral »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Kawasaki KXF*** → ***KXF*** — moto cross, mobilité urbaine agressive, transport de groupe sur terrain — *VNTM v.38 : « 3-4 sur un KXF »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
-**Corpus sources :** Hamza / MANIA
+**Corpus sources :** Hamza / MANIA · SCH / JULIUS
 
 ---
 
@@ -218,9 +228,11 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***shawty*** → registre affectif (emprunt trap américain)
 - ***foumasse*** → registre dépréciatif/sexualisé
 - ***peuf*** → registre neutre (verlan *feup* / *feupu*)
+- ***gow*** → registre générique neutre (argot de cité) — *Mort de Rire v.2 : « on a ramassé ta gow »* — CORPUS-004-SCH-JULIUS
+- ***tain-p'*** → verlan tronqué de *putain/pute* — terme d'adresse féminin affectif (ma tain-p') — *Skydweller v.25 : « ma tain-p' a sa Skydweller »* — CORPUS-004-SCH-JULIUS
 - liste ouverte — toute désignation féminine du sociolecte contemporain dans le registre requis
 
-**Corpus sources :** Hamza / MANIA · Oboy / Olyboy
+**Corpus sources :** Hamza / MANIA · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -285,8 +297,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Cali*** / ***la bay*** → Californie / Bay Area = production légale premium — *Stretch 4*
 - ***la frappe du Maroc*** → hash marocain de qualité réputée — *Desiigner*
 - ***sous l'miel du Népal*** → hash népalais premium — *Hors Ligne v2*
+- ***Rif*** → région nord du Maroc (chaîne montagneuse), principal pôle de production cannabis vers l'Europe — *Mort de Rire v.41 : « ça sent comme au Rif »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; voir aussi cat. 23)
+- ***Malaga*** → région espagnole d'importation cannabis par proximité géographique avec le Rif — *VNTM v.7 : « j'ai l'meilleur tarot du litre à Malaga »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; voir aussi cat. 23)
 
-**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy · encodage par figure iconique
+**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS · encodage par figure iconique
 
 **Logique d'encodage :** la substance n'est jamais nommée — elle est encodée par une figure dont le profil sociologique (milieu festif huppé, femme occidentale aisée, contexte mondain) la rend implicitement présente
 
@@ -336,13 +350,27 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Gros 9*** (9 mm) — *Moncler : « Gros 9, pas de gonflette »*
 - ***katons*** → cartouches/balles (argot munitions) — *Desiigner*
 
+*Par calibre (suite) :*
+- ***.38*** → calibre .38 Special, revolver à courte portée — *Otto v.35 : « ma mère vise aussi bien au .38 »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***nine*** → pistolet 9mm — *Prêt à Partir v.2 : « si j'prends mon nine »* — CORPUS-004-SCH-JULIUS
+
+*Par modèle (suite) :*
+- ***Colt Cobra*** → ***Cobra*** — revolver, arme de poing — *Otto v.11 : « mon bras, mon Cobra, on compose un syndic' »* — le bras et l'arme comme organe unique — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Sig Sauer*** → ***SigSau'*** — pistolet semi-automatique militaire de qualité supérieure — *Mort de Rire v.22 : « j'ai un SigSau' automatic »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***CZ*** (Česká zbrojovka) → pistolet tchèque circulant dans les réseaux criminels français — *Facile v.33 : « chacun son CZ »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***crosse*** → crosse de fusil/arme longue qui dépasse du vêtement — *Otto v.3 : « une crosse qui dépasse de l'anorak »* — normalisation de l'arme dès l'enfance — CORPUS-004-SCH-JULIUS
+
+*Par matériau spécifique :*
+- ***plastic*** → explosif plastique — savoir-faire criminel technique, ouverture de coffres-forts — *Otto v.36 : « ils ouvrent des coffres au plastic »* — CORPUS-004-SCH-JULIUS
+
 *Par opacité volontaire :*
 - ***le fer*** → désignation par matériau (usage établi dans tout le sociolecte)
 - ***le machin*** — *Moncler : « j'ai pris l'machin »*
 - ***le truc*** — *Moncler : « toujours le truc sur moi »*
 - ***la me-ar*** (verlan d'arme) — *L'Art de la Guerre* — procédé verlan stable, interchangeable
+- ***shlass*** → couteau, arme blanche — *Otto v.47 : « mon shlass dans son fourreau comme Zelda »* — CORPUS-004-SCH-JULIUS
 
-**Corpus sources :** Hamza / MANIA · SCH / JVLIVS III · Freeze Corleone / LMF · Oboy / Olyboy
+**Corpus sources :** Hamza / MANIA · SCH / JVLIVS III · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 > *Note de déduplication :* le membre SCH « ***Thompson / Siciliano*** » opère dans un catalogue mafieux (cat. 16) mais l'arme convoquée s'inscrit également dans cette catégorie si elle est utilisée hors catalogue. Les deux entrées sont maintenues selon le contexte d'usage.
 
@@ -372,7 +400,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 *Vecteurs de mélange (désignation périphérique) :*
 - ***lin dans les Faygo*** / ***lin sur V*** (Volvic) / ***lin dans l'Fanta shokata*** — le contenant encode le contexte de consommation, pas la substance elle-même
 
-**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF
+*Alcool de rue conditionné — variante non codéinée :*
+- ***biberon*** / ***flash*** / ***shefla*** / ***cheu*** → mélange alcool en bouteille d'eau (33/50cl) — *Mort de Rire v.12 : « Biberon dans un jean Levi Strauss »* — consommation alcoolisée de rue, état intoxiqué discret ; les quatre formes désignent le même objet/usage — CORPUS-004-SCH-JULIUS ⚠️ substance alcool (non codéinée) — logique de vecteur de consommation altérée similaire à lin/Faygo mais registre alcool
+
+**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · SCH / JULIUS
 
 ---
 
@@ -404,7 +435,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 *Polarité négative — exclusion comme marqueur de distinction :*
 - ***Tealer*** → marque streetwear grand public perçue comme signe de standing bas ; convoquée pour signifier ce qu'on ne porte pas — *Rap Catéchisme : « j'porte pas d'Tealer »* — ⚠️ ne jamais substituer par un membre à polarité positive
 
-**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy
+*Authentique de rue — sans ostentation :*
+- ***Levi Strauss*** → jean Levi's basique, vêtement de rue authentique sans signal de statut — *Mort de Rire v.12 : « Biberon dans un jean Levi Strauss »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; marque interchangeable par tout jean de rue authentique sans ostentation)
+
+**Corpus sources :** Hamza / MANIA · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -458,8 +492,11 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***'Ndrangheta*** ***Thompson***, ***Siciliano*** (organisation criminelle calabraise + arme)
 - ***Avon Barksdale*** (The Wire — chef de gang de Baltimore, figure de hiérarchie criminelle télévisuelle) — *Numérologie : « Barksdale Avon »*
 - ***BMF*** (Black Mafia Family) → organisation criminelle américaine, encodage de la puissance organisationnelle et de la solidarité interne — *Oboy / Olyboy*
+- ***Cosa Nostra*** → organisation mafieuse sicilienne (*notre chose*), loyauté familiale absolue, code d'honneur criminel — *Otto v.22 : « ici, tout pour la famille, Cosa Nostra »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Genny Savastano*** → ***Savastano*** — boss camorriste de *Gomorra*, impitoyable, trahison frontale — *Mort de Rire v.37 : « j'suis quasi sûr qu'ils vends d'la merde entre les deux yeux comme Savastano »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Toto Rina*** → ***Rina*** — figure criminelle légendaire de Marseille, boss dont on joue le rôle — *Prêt à Partir v.38 : « ils m'jouent les Rina »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
-**Corpus sources :** SCH / JVLIVS III · Freeze Corleone / LMF · Oboy / Olyboy
+**Corpus sources :** SCH / JVLIVS III · Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -553,8 +590,12 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***biff*** → argent, billet
 - ***kichtas*** / ***kich*** → argent, cash
 - ***skalapes*** → argent (terme pluriel)
+- ***tarot*** → prix (argot de cité) — prix au kilo du cannabis sur le marché — *VNTM v.7 : « j'ai l'meilleur tarot du litre à Malaga »* — CORPUS-004-SCH-JULIUS
+- ***roro*** → or (métal précieux, bijoux, argot) — *Facile v.24 : « tu brilles comme du faux roro »* — CORPUS-004-SCH-JULIUS
+- ***plaques*** → milliers d'euros (une plaque = 1000€) — *Facile v.7 : « la baraque ça fait six cents plaques »* — code numérique monétaire — CORPUS-004-SCH-JULIUS
+- ***mille eu*** → 1000€ (troncation de *mille euros*) — *Otto v.25 : « table à mille eu »* — code numérique tronqué — CORPUS-004-SCH-JULIUS
 
-**Corpus sources :** corpus gitan · Oboy / Olyboy
+**Corpus sources :** corpus gitan · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -613,8 +654,23 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Cannes*** → festival + Côte d'Azur = réussite médiatique et festive — *Oboy / Olyboy*
 - ***Dubaï*** → destination ostentation, richesse expatriée — *Oboy / Olyboy* — ⚠️ implicature ambivalente : réussite ET exil fiscal/judiciaire selon contexte
 - ***Calabasas*** → banlieue huppée de Los Angeles, territoire des célébrités (Kardashian) — *Oboy / Olyboy*
+- ***Maldives*** → archipel de l'océan Indien, luxe absolu, évasion totale — *Prêt à Partir v.33 : « c'est aux Maldives que je viens d'atterrir »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
-**Corpus sources :** Freeze Corleone / LMF · Oboy / Olyboy
+*Géographie marseillaise / pôles criminels locaux :*
+- ***Napoli*** → Naples, matrice criminelle transatlantique, Camorra — *Le Déluge v.5 : « dalles de Napoli »* — pôle d'origine du personnage mafieux — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Palerme*** → Sicile, capitale de la Cosa Nostra — esthétique mafioso, code vestimentaire — *VNTM v.4 : « vêtu comme à Palerme »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Rue Paradis*** → rue emblématique de Marseille — contraste ironie nom/réalité criminelle, ascension sociale — *Otto v.7 : « j'vis Rue Paradis »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Prado*** → avenue du Prado, Marseille — boulevard de démonstration sociale — *Otto v.8 : « j'passe le Prado »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Aubagne*** → banlieue est de Marseille — territoire étendu du réseau criminel — *Facile v.33 : « 1-3, Aubagne »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+
+*Production cannabis — précision géographique :*
+- ***Rif*** → chaîne montagneuse nord du Maroc, pôle principal de production cannabis vers l'Europe — *Mort de Rire v.41 : « ça sent comme au Rif »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; voir aussi cat. 9)
+- ***Malaga*** → région andalouse, pôle d'importation cannabis par contiguïté avec le Rif — *VNTM v.7 : « j'ai l'meilleur tarot du litre à Malaga »* — CORPUS-004-SCH-JULIUS (⚠️ instable ; voir aussi cat. 9)
+
+*Ingénierie automobile — ancrage par nationalité :*
+- ***Stuttgart*** → siège de Mercedes-Benz et Porsche — gris industriel allemand, ingénierie supérieure — *Otto v.46 : « gris comme à Stuttgart »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+
+**Corpus sources :** Freeze Corleone / LMF · Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -679,6 +735,8 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***Ultra Instinct*** (Dragon Ball) → forme ultime de combattant — *L'Art de la Guerre*
 - ***haki*** (One Piece) → puissance armée intérieure — *L'Art de la Guerre*
 - ***Baki*** (anime Baki) → force brute, combat — *L'Art de la Guerre*
+- ***Zelda*** (The Legend of Zelda) → épée légendaire dans son fourreau, puissance dormante — *Otto v.47 : « mon shlass dans son fourreau comme Zelda »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Sega*** → console Sega années 90, repère temporel de la longévité — *VNTM v.8 : « même si t'es là d'puis la Sega »* — ancienneté sans droit au respect si la conduite est mauvaise — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
 > *Note de déduplication — cat. 25 / cat. 28 :* Ultra Instinct, haki et Baki appartiennent au registre anime/manga et peuvent relever simultanément de la cat. 28 (pop culture · trait physique ou pouvoir iconique). La règle de double appartenance s'applique : le classement actif dépend du contexte de convocation. Si l'implicature porte sur le pouvoir ou le trait (force, vision, puissance innée), classer en cat. 28. Si l'implicature porte sur le statut dans le jeu ou le jeu lui-même, classer en cat. 25.
 
@@ -746,8 +804,16 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***orcs*** (fantasy) → masse bestiale sans intelligence — *Dans les Buissons* — trait : nombre + stupidité
 - ***Thanos*** (Marvel) → puissance destructrice totale, inévitabilité — *Scellé Part. 2 : « a.k.a. Thanos »*
 - ***Ultra Instinct / haki / Baki*** — voir note de déduplication cat. 25 / cat. 28
+- ***Cerbère*** (mythologie grecque) → chien à trois têtes gardien des Enfers, sans laisse, puissance destructrice incontrôlable — *Facile v.1 : « chien à trois têtes sans la laisse »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Excalibur*** (légende arthurienne) → épée légendaire = arme mythique, puissance et légitimité absolues — *Facile v.4 : « j'plante Excalibur tout au fond »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Antéchrist*** (référence biblique) → figure apocalyptique irrésistible, force de destruction totale — *Otto v.13 : « j'reprends ton rrain-té comme l'Antéchrist »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Marie*** / ***Vierge Marie*** (religion) → protection divine invoquée sur les actes criminels — *Skydweller v.31 : « sous les yeux d'Marie »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Judas*** (référence biblique) → traître archétypal, faux ami sous faux airs innocents — *VNTM v.31 : « y'a rien qu'des Judas »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***Vici*** (latin — *Veni Vidi Vici*) → victoire anticipée avant même le combat, supériorité absolue — *Mort de Rire v.24 : « j'ai Vici avant Vidi »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***déluge*** (référence biblique) → catastrophe annoncée, destruction totale, naissance comme événement apocalyptique — *Le Déluge v.1 : « arrivée du déluge »* — CORPUS-004-SCH-JULIUS
+- ***Vésuve*** (référence géo-mythologique) → volcan napolitain, origine violente, génération criminelle par le feu — *Le Déluge v.2 : « né dans le Vésuve »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
-**Corpus sources :** Freeze Corleone / LMF
+**Corpus sources :** Freeze Corleone / LMF · SCH / JULIUS
 
 ---
 
@@ -794,8 +860,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***résine*** → cannabis concentré (forme) — *Big Pharma* — ⚠️ chevauchement possible avec cat. 9 ; ici convoqué comme substance de consommation directe sans encodage de strain
 - ***fonscar*** / ***fons'*** / ***mal fons'*** → état de défonce composite, polyconsommation — argot déformé ; ces formes encodent l'état résultant, pas la substance source
 - ***sous potion*** → état altéré générique non nommé — encodage opaque volontaire — *Freeze Raël : « sous potion avec les xans »*
+- ***fonce-dé*** → être sous emprise de stupéfiants (verlan de *défoncer*) — état altéré composite — *Mort de Rire v.39 : « Plata, fonce-dé, j'vais tourner toute la nuit »* — CORPUS-004-SCH-JULIUS
+- ***bocal*** → récipient de production crack — processus de basification cocaïne → crack en récipient — *Mort de Rire v.1 : « fous la coke dans son bocal quand l'eau va frémir »* — CORPUS-004-SCH-JULIUS (voir aussi cat. 32)
 
-**Corpus sources :** Freeze Corleone / LMF
+**Corpus sources :** Freeze Corleone / LMF · SCH / JULIUS
 
 ---
 
@@ -848,7 +916,16 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 *Sous-type B2 — Coupage (dilution cocaïne) :*
 - ***lactose*** / ***bicarbonate*** → agents de coupage, énumérés en anaphore gestuelle — *SOLITUDE : « J'la coupe à la lactose, j'la coupe au bicarbonate »* · implicature : routine professionnelle maîtrisée, compétence non tromperie
 
-**Corpus sources :** SCH / Rooftop
+*Sous-type B1 extension — Basage + contrôle de pureté :*
+- ***bocal*** + ***coke basé*** / ***0.8 pour un G*** → basification en bocal (= crack), taux de pureté exprimé numériquement — *Mort de Rire v.32 : « Coke basé, ouais, 0.8 pour un G »* — CORPUS-004-SCH-JULIUS · implicature : expertise avancée, connaissance du produit au centième de gramme ; le savoir-faire est total
+
+*Sous-type B5 (nouveau) — Dissimulation automobile :*
+- ***doublette*** + ***monstres*** → clonage de plaque d'immatriculation (plaque doublée) sur véhicule puissant — *Mort de Rire v.42 : « monstres en doublette, j'fais briller les radars »* — CORPUS-004-SCH-JULIUS · implicature : savoir-faire de dissimulation identitaire du véhicule, franchissement radar sans contrôle
+
+*Métaphore de l'efficacité meurtrière systématique :*
+- ***moisson*** → récolte agricole comme métaphore du meurtre en série — *Otto v.31 : « là, c'est la moisson »* — CORPUS-004-SCH-JULIUS · implicature : acte collectif, routinier, abondant ; le meurtre comme production
+
+**Corpus sources :** SCH / Rooftop · SCH / JULIUS
 
 ---
 
@@ -873,7 +950,17 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 *Sous-type — Véhicule de livraison :*
 - ***bécane*** → deux-roues bas de gamme, mobilité de terrain quotidienne — *Terminal 7 : « tous les jours en bécane »*
 
-**Corpus sources :** Djadja & Dinaz / Terminal 7
+*Sous-type — Équipement de protection du terrain :*
+- ***pare-balles*** → gilet pare-balles — menace physique permanente, statut criminel élevé — *Otto v.14 : « j'sors en pare-balles »* — CORPUS-004-SCH-JULIUS
+
+*Sous-type — Objet de saisie / contrôle :*
+- ***keuss*** → sac (verlan de *sac*) — ce qui est pris/saisi ne revient pas — *Facile v.20 : « un keuss, ça rend pas les coups »* — CORPUS-004-SCH-JULIUS
+- ***ffre-co*** → coffre de voiture (verlan de *coffre*) — espace de séquestration/transport — *Prêt à Partir v.13 : « on prend en otage dans l'ffre-co du Audi »* — CORPUS-004-SCH-JULIUS
+
+*Sous-type — Point de terrain / lieu de trafic :*
+- ***hazi*** → point de deal, terrain de trafic (synonyme de *rrain-té* / *four*) — *Otto v.34 : « éteins tes putains d'phares au hazi »* — CORPUS-004-SCH-JULIUS
+
+**Corpus sources :** Djadja & Dinaz / Terminal 7 · SCH / JULIUS
 
 ---
 
@@ -914,9 +1001,13 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 
 *Arabe dialectal — identité / mise en garde / spiritualité :*
 - ***heja*** / ***hecheum*** / ***hendek*** / ***baïda*** / ***dré*** / ***3iche*** / ***3arbi*** — *Terminal 7*
+- ***kheys*** → frères, pairs (arabe *khey* = frère) — *Otto v.36 : « mes kheys, ils ont des r'gards innocents »* — CORPUS-004-SCH-JULIUS
+- ***temeniké*** / ***timinik*** → faire des manières, hésiter, tergiverser — inaction/lenteur dans le business ou l'amitié — *VNTM v.35 : « les truffes qu'ont temeniké »* — CORPUS-004-SCH-JULIUS
 
 *Espagnol — univers criminel transnational :*
 - ***sicar'*** (sicario) / ***calle*** — *Terminal 7*
+- ***Plata*** → argent (*plata* espagnol) — dilemme narco *plata o plomo* — *Mort de Rire v.39 : « Plata, fonce-dé »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
+- ***muerte*** → mort (*muerte* espagnol) — discrétion absolue, invisible et mortelle — *Facile v.25 : « incolore, inodore comme la muerte »* — CORPUS-004-SCH-JULIUS (⚠️ instable)
 
 *Créole antillais — validation de soi / identité plurielle :*
 - ***yessay*** — *Terminal 7*
@@ -924,7 +1015,7 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 *Anglais — trafic / numérique / quantification :*
 - ***jobé*** / ***PV*** / ***cent G*** — *Terminal 7*
 
-**Corpus sources :** Djadja & Dinaz / Terminal 7
+**Corpus sources :** Djadja & Dinaz / Terminal 7 · SCH / JULIUS
 
 ---
 
@@ -963,9 +1054,13 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 
 **Membres issus du corpus :**
 - ***trois ans ferme dans la sacoche*** → stock conséquent, peine correctionnelle lourde — *Terminal 7 : « J'ai trois ans ferme dans la sacoche »*
+- ***ferme*** → prison, incarcération — encodage direct du confinement — *Facile v.12 : « cinq-six potos : y'a cent ans en ferme »* — CORPUS-004-SCH-JULIUS
+- ***gé-plon*** → plongée (verlan), incarcération, peine exécutée — *Prêt à Partir v.38 : « ils ont gé-plon pour vandalisme »* — CORPUS-004-SCH-JULIUS
+- ***assises*** → Cour d'assises, juridiction criminelle — crimes graves, condamnations lourdes — *Otto v.15 : « un reuf a pris quinze années aux assises »* — CORPUS-004-SCH-JULIUS
+- ***son-pri*** → prison (verlan de *prison*) — contrainte d'enfermement total — *Skydweller v.8 : « soucis, son-pri, au fond j'étais jeune »* — CORPUS-004-SCH-JULIUS
 - liste ouverte — tout quantum de peine est substituable selon la quantité encodée
 
-**Corpus sources :** Djadja & Dinaz / Terminal 7
+**Corpus sources :** Djadja & Dinaz / Terminal 7 · SCH / JULIUS
 
 ---
 
@@ -1100,9 +1195,11 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 **Membres issus du corpus :**
 - ***zin*** → cousin (origine arabe dialectal *zboun* / *ibn 3amm*) — *Oboy / Olyboy*
 - ***cousin*** / ***cuz*** → désignation directe ou abrégée — *Oboy / Olyboy*
+- ***daron*** → père (verlan de *padre*) — figure paternelle, ancrage familial — *Otto v.20 : « mon daron s'appelait Otto »* — CORPUS-004-SCH-JULIUS
+- ***reuf*** → frère, pair, ami proche (verlan de *frère*) — appartenance au groupe — *Otto v.15 : « un reuf a pris quinze années »* — CORPUS-004-SCH-JULIUS
 - liste ouverte — tout terme désignant le cousin ou le proche assimilé dans le sociolecte contemporain
 
-**Corpus sources :** Oboy / Olyboy
+**Corpus sources :** Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -1119,9 +1216,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***enf*** → ennemi (abréviation argotique) — *Oboy / Olyboy*
 - ***rat*** → traître, ennemi interne — *Oboy / Olyboy* — ⚠️ encodage de trahison interne, proche de la poucave (cat. 20) ; distinguer selon contexte
 - ***snitch*** → balance, informateur (emprunt américain) — *Oboy / Olyboy* — ⚠️ double appartenance possible avec cat. 20 (poucave) ; ici convoqué dans un registre américanisé
+- ***rate-pi*** → pirate (verlan de *pirate*) — individu courageux dans l'illégalité, audace criminelle assumée — *Mort de Rire v.29 : « si t'es un rate-pi »* — CORPUS-004-SCH-JULIUS ⚠️ sens valorisant (audace), contrairement aux autres membres péjoratifs de la catégorie — convoqué pour désigner l'allié courageux, non l'ennemi
 - liste ouverte — tout terme désignant l'ennemi ou rival dans le sociolecte contemporain
 
-**Corpus sources :** Oboy / Olyboy
+**Corpus sources :** Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -1137,9 +1235,10 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***mala*** → ostentation, flambe (origine arabe dialectal *mala* = remplir / déborder) — *Oboy / Olyboy*
 - ***flex*** → affichage de richesse (emprunt trap américain) — *Oboy / Olyboy*
 - ***bling*** → ostentation matérielle, bijoux et richesse affichée (emprunt hip-hop américain) — *Oboy / Olyboy*
+- ***OG*** → Original Gangsta — statut de vétéran respecté du quartier, ancienneté criminelle d'autorité — *Skydweller v.30 : « OG pour la zone »* — CORPUS-004-SCH-JULIUS
 - liste ouverte — tout terme désignant le comportement ostentatoire dans le sociolecte contemporain
 
-**Corpus sources :** Oboy / Olyboy
+**Corpus sources :** Oboy / Olyboy · SCH / JULIUS
 
 ---
 
@@ -1310,56 +1409,24 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 - ***keuf*** / ***keu*** → police (verlan de *flic*) — *Oboy / Olyboy*
 - ***flics*** → désignation directe — *Oboy / Olyboy*
 - ***reuch*** → policier (verlan de *cheur* / *cherif*) — *Oboy / Olyboy*
+- ***keufs*** → police (verlan de *flic*) — *Otto v.34 : « éteins tes putains d'phares au hazi »* (contexte de surveillance policière implicite) — CORPUS-004-SCH-JULIUS (confirmation transversale CORPUS-003-DJADJA_DINAZ-SPLEEN)
 - liste ouverte — tout terme argotique désignant la police dans le sociolecte contemporain
 
-**Corpus sources :** Oboy / Olyboy
+**Corpus sources :** Oboy / Olyboy · SCH / JULIUS
 
 ---
 
 ---
 
-## INTÉGRATION CORPUS-004-SCH-JULIUS (2026-04-10)
+## INTÉGRATION CORPUS-004-SCH-JULIUS — LOG COMPLÉTÉ (2026-04-11)
 
-**Résumé :** SCH / JULIUS — corpus complet (7 morceaux). 110 nouveaux termes validés, 45 marqués instables. Enrichissement multi-catégories, pas de création de catégories majeures.
+**Résumé :** SCH / JULIUS — corpus complet (7 morceaux). 110 nouveaux termes validés, 45 marqués instables, 12 doublons skippés. Intégration profonde dans les catégories actives effectuée le 2026-04-11.
 
-### Enrichissements par catégorie
+**Catégories enrichies :** 4, 5, 6, 7, 9, 11, 12, 13, 16, 21, 23, 25, 28, 30, 32, 33, 35, 37, 43, 44, 45, 54
 
-- **Cat. 4** (Montres de luxe) : +Skydweller
-- **Cat. 5** (Voitures de prestige) : +Féfés (Ferrari), +Panamera, +Viano, +X-ADV (moto), +1-3/Aubagne/CZ (région/arme)
-- **Cat. 8** (Billets/encodage monétaire) : +plaques (1K€), +mille eu (1K€), +oseille (déjà validé)
-- **Cat. 9** (Cannabis) : enrichissement implicature (Malaga comme pôle)
-- **Cat. 11** (Armes) : +Cobra (revolver), +plastic (explosif), +.38 (calibre), +nine (9mm), +SigSau' (Sig Sauer), +CZ (pistolet)
-- **Cat. 12** (Lean) : +biberon/flash/shefla/cheu (mélange alcool en bouteille)
-- **Cat. 13** (Vêtements de prestige) : +Levi Strauss (jean basique), +trois quarts (manteau)
-- **Cat. 14-18** (Références intertextuelles) : +déluge, +Vésuve, +Napoli (géographie), +Otto, +Rina, +Savastano, +Zelda, +Cerbère, +Excalibur, +Marie, +Judas (Antéchrist), +Vici
-- **Cat. 21** (Argent) : +tarot (prix argent), +roro (or/bijoux)
-- **Cat. 23** (Géographie de l'importation) : +Malaga (région), +Rif (nord Maroc production cannabis)
-- **Cat. 24-25** (Substances/encodage) : +coke basé/0.8 (crack + pureté)
-- **Cat. 30** (Substances hors cannabis/lean) : +bocal (production), +prométhazine (déjà validé)
-- **Cat. 31-32** (Mécanismes rhétoriques/savoir-faire) : +moisson (meurtre systématique), +doublette (clonage plaque)
-- **Cat. 33** (Synecdoque matérielle) : +BZ (couchage fortune)
-- **Cat. 35** (Plurilinguisme) : +kheys (arabe *khey* = frère), +temeniké/timinik (arabe faire manières), +Plata (espagnol argent), +muerte (espagnol mort)
-- **Cat. 37** (Peine/stock) : +ferme (prison), +gé-plon (plongée = incarcération)
-- **Cat. 44** (Ennemi/adversaire) : +rate-pi (pirate = courageux)
-- **Cat. 50** (Partir précipitamment) : +son-pri (prison = confinement inverse)
-- **Cat. 54** (Police) : +kheys confirmé, +hazi (point de trafic = menace)
+**Termes non résolus (opacité volontaire confirmée) :** apess, Major, Shootstar, akham, 5.30, grands places, BZ, R — sens intentionnellement non déductibles, candidats à une future sous-catégorie "Opacité volontaire non déductible"
 
-### Nouveaux termes (non classés dans catégories existantes)
-
-- **Argot terrain:** rrain-té (verlan terrain = point deal), hazi (synonyme), officine (lieu production), trimard (incompétent), tarter (battre)
-- **Opacité volontaire:** R (opacité criminalité passée), akham, apess, Major, Shootstar, 5.30, grands places (sens non déterminés — passés)
-- **Troncations/contractions:** 'Ste (cité), 'teille (bouteille), alim' (alimentation), syndic' (syndicat), shlass (couteau), reum (mère juron), tain-p' (putain adresse), ffre-co (coffre), 'rarri (Ferrari), Sky miel (Jack Daniel's contraction)
-- **Verlan:** tes-trai (traîtres), tords (torts), Sega (gaming), élastique (liasse), saga (univers narratif), keuss (sac), rotte-ca (carottes = escroquer), fonce-dé (défoncer), gamos (voiture — déjà validé), coco (cocaïne — déjà validé)
-- **Références géographiques (instables):** Palerme, Rue Paradis, Prado, Aldi, Stuttgart, Eristoff, Levi Strauss, All-Star, Häagen-Dazs, McDonald's, Abysses, Maldives, Saint-Nicolas, Château Margaux, Texti
-- **Métaphores figées:** corbillards (mort), tortilla (ligoter), sapin (mort), moisson (meurtre), messes basses (complots), bétonneurs (sécuriser), tirelires (coffres), soldats d'infortune (morts)
-- **Codes numériques:** 1 point, 0.8 (pureté cocaïne)
-- **Autres:** OG (Original Gangsta statut), Cosa Nostra (mafia), pareballes (protection), assises (tribunal), porté par six (mort), OD (overdose), daron (père), reuf (frère), KBIS (blanchiment), cagoulé (masqué), soleil (unicité/mort), CHU (hôpital), gow (femme), yearling (montée puissance), néné (grand-père juron), rate-pi (pirate courageux), loves (déjà validé), offshore (paradis fiscal)
-
-### Note analytique
-
-**Opacité volontaire — nouvelle sous-catégorie :** 8 termes ne résolus (apess, Major, Shootstar, akham, 5.30, grands places, BZ, R) — constitueraient potentiellement une sous-catégorie "Opacité volontaire non déductible" pour corpus ultérieurs.
-
-**Instabilité dominante :** 45/110 (41%) des nouveaux termes marqués instables — ratio plus élevé que corpus antérieurs. Suggère densité de références intertextuelles élevée dans le corpus SCH.
+**Note analytique :** ratio d'instabilité 45/110 (41%) — plus élevé que les corpus antérieurs, indicatif de la densité de références intertextuelles dans l'univers SCH/JULIUS.
 
 ---
 
@@ -1374,3 +1441,5 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 | 2026-03-30 | ENRICHISSEMENT | Intégration CORPUS-001-SCH-ROOFTOP (SCH / Rooftop, 2021) → création cat. 31 (Mécanisme rhétorique · cassure d'élégance : sous-types A1 insulte directe, A2 auto-dérision, A3 dépréciation sociale · A4/A5 en attente) et cat. 32 (Savoir-faire criminel · transformation du produit : sous-types B1 basage, B2 coupage · B3/B4/B5 en attente) · note de double appartenance Zampa (cat. 31 / cat. 16) · total : 32 catégories |
 | 2026-03-30 | ENRICHISSEMENT | Intégration CORPUS-002-DJADJA_DINAZ-TERMINAL7 → enrichissement cat. 1 (Desailly), cat. 2 (Bellingham, Mbappé), cat. 8 (violet/500€ + note polysémie bleus + note progression chromatique) · création cat. 33 (synecdoque matérielle du dealer), cat. 34 (asyndète d'action), cat. 35 (plurilinguisme d'authentification), cat. 36 (figure politique · marqueur temporel ou menace identitaire · note déduplication cat. 24), cat. 37 (peine judiciaire · encodage de stock) · total : 37 catégories |
 | 2026-03-30 | ENRICHISSEMENT | Intégration CORPUS-001-OBOY-OLYBOY (Oboy / Olyboy) → enrichissement cat. 2 (Harry Kane), cat. 4 (Rollie, Cartier Skeleton, Yacht Master), cat. 5 (gamos, fusée, Huracán, RS, SVR + polarité négative + note marque allemande), cat. 7 (gadji, racli, mousso, shawty, foumasse, peuf), cat. 9 (doré, kamas, gaz, produit + Beldia, Lemon Haze, Amnesia, Afghan), cat. 11 (P38, tokarev, pipe), cat. 13 (Margiela, LV, Dior), cat. 16 (BMF), cat. 19 (variante nachav + note double appartenance cat. 50), cat. 21 (tals/talbin/tal, cheuka, biff, kichtas/kich, skalapes), cat. 23 (Bahamas, Canaries, Cannes, Dubaï, Calabasas) · création cat. 38 à 54 (+17 nouvelles catégories) · total : 54 catégories |
+| 2026-04-01 | ENRICHISSEMENT | Intégration CORPUS-003-DJADJA_DINAZ-SPLEEN → 14 termes validés · enrichissement cat. 5 (bolide), cat. 8 (biff), cat. 9 (soké), cat. 25 (VAR détourné), cat. 35 (hendek), cat. 54 (keufs) · confirmations transversales : hendek, keufs, doré |
+| 2026-04-11 | INTÉGRATION PROFONDE | CORPUS-004-SCH-JULIUS → 110 termes validés, 45 instables · enrichissement cat. 4 (Skydweller), cat. 5 (Féfés, Viano, 'rarri), cat. 6 (X-ADV, KXF), cat. 7 (gow, tain-p'), cat. 9 (Rif, Malaga géo), cat. 11 (Cobra, plastic, .38, nine, SigSau', CZ, crosse, shlass), cat. 12 (biberon/flash/shefla/cheu), cat. 13 (Levi Strauss), cat. 16 (Cosa Nostra, Savastano, Rina), cat. 21 (tarot, roro, plaques, mille eu), cat. 23 (Napoli, Palerme, Rue Paradis, Prado, Aubagne, Rif, Malaga, Stuttgart, Maldives), cat. 25 (Zelda, Sega), cat. 28 (Cerbère, Excalibur, Antéchrist, Marie, Judas, Vici, déluge, Vésuve), cat. 30 (fonce-dé, bocal), cat. 32 (coke basé/0.8, doublette, moisson), cat. 33 (pare-balles, keuss, ffre-co, hazi), cat. 35 (kheys, temeniké/timinik, Plata, muerte), cat. 37 (ferme, gé-plon, assises, son-pri), cat. 43 (daron, reuf), cat. 44 (rate-pi), cat. 45 (OG), cat. 54 (keufs) · 8 termes opacité volontaire non résolus : apess, Major, Shootstar, akham, 5.30, grands places, BZ, R |
