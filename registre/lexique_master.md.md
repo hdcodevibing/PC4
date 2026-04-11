@@ -1316,6 +1316,53 @@ Ce registre est l'outil de composition et de substitution lexicale inter-corpus.
 
 ---
 
+---
+
+## INTÉGRATION CORPUS-004-SCH-JULIUS (2026-04-10)
+
+**Résumé :** SCH / JULIUS — corpus complet (7 morceaux). 110 nouveaux termes validés, 45 marqués instables. Enrichissement multi-catégories, pas de création de catégories majeures.
+
+### Enrichissements par catégorie
+
+- **Cat. 4** (Montres de luxe) : +Skydweller
+- **Cat. 5** (Voitures de prestige) : +Féfés (Ferrari), +Panamera, +Viano, +X-ADV (moto), +1-3/Aubagne/CZ (région/arme)
+- **Cat. 8** (Billets/encodage monétaire) : +plaques (1K€), +mille eu (1K€), +oseille (déjà validé)
+- **Cat. 9** (Cannabis) : enrichissement implicature (Malaga comme pôle)
+- **Cat. 11** (Armes) : +Cobra (revolver), +plastic (explosif), +.38 (calibre), +nine (9mm), +SigSau' (Sig Sauer), +CZ (pistolet)
+- **Cat. 12** (Lean) : +biberon/flash/shefla/cheu (mélange alcool en bouteille)
+- **Cat. 13** (Vêtements de prestige) : +Levi Strauss (jean basique), +trois quarts (manteau)
+- **Cat. 14-18** (Références intertextuelles) : +déluge, +Vésuve, +Napoli (géographie), +Otto, +Rina, +Savastano, +Zelda, +Cerbère, +Excalibur, +Marie, +Judas (Antéchrist), +Vici
+- **Cat. 21** (Argent) : +tarot (prix argent), +roro (or/bijoux)
+- **Cat. 23** (Géographie de l'importation) : +Malaga (région), +Rif (nord Maroc production cannabis)
+- **Cat. 24-25** (Substances/encodage) : +coke basé/0.8 (crack + pureté)
+- **Cat. 30** (Substances hors cannabis/lean) : +bocal (production), +prométhazine (déjà validé)
+- **Cat. 31-32** (Mécanismes rhétoriques/savoir-faire) : +moisson (meurtre systématique), +doublette (clonage plaque)
+- **Cat. 33** (Synecdoque matérielle) : +BZ (couchage fortune)
+- **Cat. 35** (Plurilinguisme) : +kheys (arabe *khey* = frère), +temeniké/timinik (arabe faire manières), +Plata (espagnol argent), +muerte (espagnol mort)
+- **Cat. 37** (Peine/stock) : +ferme (prison), +gé-plon (plongée = incarcération)
+- **Cat. 44** (Ennemi/adversaire) : +rate-pi (pirate = courageux)
+- **Cat. 50** (Partir précipitamment) : +son-pri (prison = confinement inverse)
+- **Cat. 54** (Police) : +kheys confirmé, +hazi (point de trafic = menace)
+
+### Nouveaux termes (non classés dans catégories existantes)
+
+- **Argot terrain:** rrain-té (verlan terrain = point deal), hazi (synonyme), officine (lieu production), trimard (incompétent), tarter (battre)
+- **Opacité volontaire:** R (opacité criminalité passée), akham, apess, Major, Shootstar, 5.30, grands places (sens non déterminés — passés)
+- **Troncations/contractions:** 'Ste (cité), 'teille (bouteille), alim' (alimentation), syndic' (syndicat), shlass (couteau), reum (mère juron), tain-p' (putain adresse), ffre-co (coffre), 'rarri (Ferrari), Sky miel (Jack Daniel's contraction)
+- **Verlan:** tes-trai (traîtres), tords (torts), Sega (gaming), élastique (liasse), saga (univers narratif), keuss (sac), rotte-ca (carottes = escroquer), fonce-dé (défoncer), gamos (voiture — déjà validé), coco (cocaïne — déjà validé)
+- **Références géographiques (instables):** Palerme, Rue Paradis, Prado, Aldi, Stuttgart, Eristoff, Levi Strauss, All-Star, Häagen-Dazs, McDonald's, Abysses, Maldives, Saint-Nicolas, Château Margaux, Texti
+- **Métaphores figées:** corbillards (mort), tortilla (ligoter), sapin (mort), moisson (meurtre), messes basses (complots), bétonneurs (sécuriser), tirelires (coffres), soldats d'infortune (morts)
+- **Codes numériques:** 1 point, 0.8 (pureté cocaïne)
+- **Autres:** OG (Original Gangsta statut), Cosa Nostra (mafia), pareballes (protection), assises (tribunal), porté par six (mort), OD (overdose), daron (père), reuf (frère), KBIS (blanchiment), cagoulé (masqué), soleil (unicité/mort), CHU (hôpital), gow (femme), yearling (montée puissance), néné (grand-père juron), rate-pi (pirate courageux), loves (déjà validé), offshore (paradis fiscal)
+
+### Note analytique
+
+**Opacité volontaire — nouvelle sous-catégorie :** 8 termes ne résolus (apess, Major, Shootstar, akham, 5.30, grands places, BZ, R) — constitueraient potentiellement une sous-catégorie "Opacité volontaire non déductible" pour corpus ultérieurs.
+
+**Instabilité dominante :** 45/110 (41%) des nouveaux termes marqués instables — ratio plus élevé que corpus antérieurs. Suggère densité de références intertextuelles élevée dans le corpus SCH.
+
+---
+
 ## Journal des opérations
 
 | Date | Opération | Détail |

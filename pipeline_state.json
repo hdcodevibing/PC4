@@ -3,12 +3,15 @@
   "artiste": "SCH",
   "projet": "JULIUS",
   "slug": "sch-julius",
-  "etape_courante": 1,
+  "etape_courante": 3,
   "scan_status": "terminé",
-  "desambiguisation_status": "en_attente_H",
+  "desambiguisation_status": "terminée",
+  "fusion_lexique_status": "terminée",
   "annotation_expo_status": "non_démarrée",
   "cartographie_status": "non_démarrée",
   "annotation_thematique_status": "non_démarrée",
   "assemblage_status": "non_démarré",
-  "date_debut": "2026-04-10"
+  "date_debut": "2026-04-10",
+  "date_etape2_complete": "2026-04-11",
+  "note": "Utilisateur prend contrôle pour étapes 3-6"
 }
